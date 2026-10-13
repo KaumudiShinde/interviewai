@@ -16,6 +16,17 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Authentication
+
+Authentication uses Supabase Auth. New users receive a six-digit email OTP, while Google and GitHub sign-in use Supabase OAuth. Add these values to `.env.local` from **Supabase Dashboard → Project Settings → API**:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+In Supabase Authentication settings, enable Email OTP and configure Google/GitHub providers. Add `http://localhost:3000/auth/callback` as the redirect URL for local development. In the Google/GitHub provider consoles, use `https://your-project.supabase.co/auth/v1/callback` as the provider callback URL.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
